@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+   margin: 0 0;
+   padding: 0 0;
+	border: 0;
+   box-sizing: border-box;
+   font-family: 'Inter', sans-serif;
+}
+
+:root {
+   --white: #FFFFFF;
+   --black: #000000;
+   --primary: #6a5acd;
+   --secondary: #f4f3fb;
+   --tertiary: #d5d0f1;
+}
+
+.container {
+   display: grid;
+   width: 100vw;
+   height: 10.7vh;
+   background-color: var(--white);
+   grid-template-columns: 1fr 0.4fr 0.4fr 0.4fr 0.8fr 0.8fr 2fr 0.8fr;
+   justify-items: center;
+   align-items: center;
+}
+
+.title {
+   display: inline-block;
+   font-size: 1.7vw;
+   font-weight: 700;
+   margin-left: 2.8vw;
+   margin-right: 1.7vw;
+}
+
+.optionButtons {
+   display: inline-block;
+   padding: 1vh 1.5vw;
+   margin-top: 0.6vh;
+   font-size: 1.1vw;
+   font-weight: 500;
+   background-color: var(--white);
+   white-space: nowrap;
+}
+
+.optionButtons:hover {
+   background-color: var(--tertiary);
+   color: var(--primary);
+   cursor: pointer;
+}
+
+#selectedButton {
+   background-color: var(--tertiary);
+   color: var(--primary);
+}
+
+.authButtons {
+   display: inline-block;
+   padding: 1.7vh 1.5vw;
+   font-size: 1.1vw;
+   font-weight: 500;
+   white-space: nowrap;
+   background-color: var(--white);
+   color: var(--primary);
+   border: 0.05vw solid rgb(175, 175, 175);
+   border-radius: 8px;
+   justify-self: flex-end;
+}
+
+.authButtons:hover {
+   scale: 1.07;
+   cursor: pointer;
+}
+
+#signUpButton {
+   background-color: var(--primary);
+   color: var(--white);
+   border: 0;
+   justify-self: center;
+}
