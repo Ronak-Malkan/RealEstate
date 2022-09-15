@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+   margin: 0 0;
+   padding: 0 0;
+	border: 0;
+   box-sizing: border-box;
+   font-family: 'Inter', sans-serif;
+}
+
+:root {
+   --white: #FFFFFF;
+   --black: #000000;
+   --primary: #6a5acd;
+   --secondary: #f4f3fb;
+}
+
+.header {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   width: 65vw;
+   margin-left: 17.5vw;
+   margin-top: 11vh;
+   align-items: center;
+}
+
+.subTitle {
+   display: inline-block;
+   justify-self: flex-start;
+   font-size: 2.1vw;
+   color: var(--black);
+}
+
+.searchInput {
+   display: inline-block;
+   width: 12vw;
+   font-size: 0.9vw;
+   padding: 1vh 1vw;
+   justify-self: flex-end;
+   color: var(--black);
+   background-color: var(--white);
+   border: 0.05vw solid rgb(175, 175, 175);
+   border-radius: 6px;
+   outline: none;
+}
+
+.secondNavbar {
+   display: grid;
+   grid-template-columns: 1.3fr 1fr 1fr 1fr 0.8fr;
+   width: 65vw;
+   /* height: 11.5vh; */
+   background-color: var(--white);
+   border: none;
+   border-radius: 5px;
+   margin-top: 4vh;
+   margin-left: 17.5vw;
+}
+
+.filterTitle {
+   display: inline-block;
+   margin-top: 2.7vh;
+   font-size: 0.8vw;
+   color: rgb(175, 175, 175);
+}
+
+#locationTitle {
+   margin-left: 2.5vw;
+}
+
+.filterInput {
+   display: inline-block;
+   width: 10vw;
+   padding: 0.5vh 0vw;
+   font-size: 1.2vw;
+   font-weight: 600;
+   outline: none;
+}
+
+.filterInput:hover {
+   cursor: pointer;
+}
+
+#locationInput {
+   margin-left: 2.5vw;
+}
+
+#searchButton {
+   background-color: var(--primary);
+   color: var(--white);
+   border: 0;
+   justify-self: center;
+   height: 6.5vh;
+   margin-top: 2.5vh;
+}
+
+.arrowDown {
+   font-size: 1.1vw;
+}
+
+.arrowDown:hover{
+   cursor: pointer;
+}
+
+.filters {
+   position: relative;
+   margin-bottom: 2.7vh;
+}
+
+.dropDownContainer {
+   display: none;
+   grid-template-columns: 1fr;
+   width: 11vw;
+   position: absolute;
+   bottom: -13.7vh;
+   right: 2.8vw;
+}
+
+.show {
+   display: grid;
+}
+
+.menuButton {
+   display: inline-block;
+   text-align: left;
+   width: 11vw;
+   padding: 0.7vh 1vw;
+   font-size: 1.2vw;
+   font-weight: 500;
+   background-color: var(--white);
+   border-bottom: 0.2vh solid var(--primary);
+}
+
+.menuButton:hover {
+   cursor: pointer;
+}
+
+#locationDrop {
+   right: 4vw;
+}
+
+.propertiesContainer {
+   display: grid;
+   width: 65vw;
+   margin-left: 17.5vw;
+   margin-top: 6.2vh;
+   margin-bottom: 5.5vh;
+   grid-template-columns: 1fr 1fr 1fr;
+   column-gap: 2vw;
+   row-gap: 4vh;
+}
+
+.properties {
+   display: inline-block;
+   background-color: var(--white);
+   padding: 2.5vh 1.8vw;
+   border-radius: 7px;
+   overflow: hidden;
+}
+
+.price {
+   display: inline-block;
+   font-size: 0.8vw;
+   font-weight: 400;
+   color: rgb(140, 140, 140);
+}
+
+.priceDigit {
+   font-size: 1.2vw;
+   color: var(--primary);
+   font-weight: 600;
+}
+
+.like {
+   display: inline-block;
+   margin-left: 8vw;
+   font-size: 1.2vw;
+   background-color: var(--white);
+   border: none;
+   outline: none;
+}
+
+.like:hover {
+   scale: 1.15;
+   cursor: pointer;
+}
+
+.propertyName {
+   display: inline-block;
+   font-size: 1.35vw;
+   font-weight: 700;
+   color: var(--black);
+   margin-top: 2.4vh;
+}
+
+.address {
+   display: inline-block;
+   font-size: 0.9vw;
+   font-weight: 400;
+   color: rgb(140, 140, 140);
+   margin-top: 2.4vh;
+}
+
+#specifications {
+   width: 16.5vw;
+   padding: 0.7vh 0;
+   border-top: 0.15vw solid var(--black);
+}
