@@ -15,10 +15,41 @@ export default function MainContent() {
 
    //stores the filtered data
    const [filteredData, setData] = React.useState([]);
+   // eslint-disable-next-line
    const [counter, setCounter] = React.useState([]);
 
+   //storing preFetched filters options;
+   // eslint-disable-next-line
+   const [allLocation, setAllLocation] = React.useState([]);
+   // eslint-disable-next-line
+   const [allDate, setAllDate] = React.useState([]);
+   // eslint-disable-next-line
+   const [allPropertyType, setAllType] = React.useState([]);
+
+
+   //run useEffect once to prefetch all the options from json file and store them
+   React.useEffect(() => {
+      const tempLocation = new Set();
+      const tempDate = new Set();
+      const tempType = new Set();
+      for(var i=0; i<750; i++){
+         tempLocation.add(data[i].location);
+         tempDate.add(data[i].movingDate);
+         tempType.add(data[i].propertyType);
+      }
+      console.log("use-effect");
+      tempLocation.forEach((value) => {allLocation.push(value)})
+      tempDate.forEach((value) => {allDate.push(value)});
+      tempType.forEach((value) => {allPropertyType.push(value)});
+      console.log(allLocation);
+      setLocation(allLocation[0]);
+      setDate(allDate[0]);
+      setType(allPropertyType[0]);
+   }, [])
+
+
    function showOrNot(identifier){
-      if(identifier==clickedFilter){
+      if(identifier===clickedFilter){
          return "dropDownContainer show";
       }
       else
@@ -33,7 +64,7 @@ export default function MainContent() {
          }
       }
       for(var i=0; i<750; i++){
-         if(data[i].location == location && data[i].movingDate == date && data[i].price <= price[1] && data[i].price >= price[0] && data[i].propertyType == propertyType){
+         if(data[i].location === location && data[i].movingDate === date && data[i].price <= price[1] && data[i].price >= price[0] && data[i].propertyType === propertyType){
             filteredData.push(data[i]);
             counter.push(i);
          }
@@ -55,15 +86,16 @@ export default function MainContent() {
                <input className='filterInput' value={location} id='locationInput' onClick={() => changeFilter(0)}></input>
                <span className='arrowDown' onClick={() => changeFilter(0)}>▼</span>
                <div className={showOrNot(0)} id='locationDrop'>
-                  <button className='menuButton' onClick={() => {setLocation("Mumbai"); changeFilter(7);}}>
-                     Mumbai
-                  </button><br/>
-                  <button className='menuButton' onClick={() => {setLocation("Delhi"); changeFilter(7);}}>
-                     Delhi
-                  </button><br/>
-                  <button className='menuButton' onClick={() => {setLocation("Ahmedabad"); changeFilter(7);}}>
-                     Ahmedabad
-                  </button>
+               {
+                  allLocation.map(
+                     (value)=>
+                     <div>
+                        <button className='menuButton' onClick={() => {setLocation(value); changeFilter(7);}}>
+                           {value}
+                        </button><br/>
+                     </div>
+                  )
+               }
                </div>
             </div>
 
@@ -72,15 +104,16 @@ export default function MainContent() {
                <h3 className='filterTitle'>When</h3><br/>
                <input className='filterInput' value={date} onClick={() => changeFilter(1)}></input><span className='arrowDown' onClick={() => changeFilter(1)}>▼</span>
                <div className={showOrNot(1)} id='dateDrop'>
-                  <button className='menuButton' onClick={() => {setDate("2nd January"); changeFilter(7);}}>
-                     2nd January
-                  </button><br/>
-                  <button className='menuButton' onClick={() => {setDate("3rd January"); changeFilter(7);}}>
-                     3rd January
-                  </button><br/>
-                  <button className='menuButton' onClick={() => {setDate("4th January"); changeFilter(7);}}>
-                     4th January
-                  </button>
+               {
+                  allDate.map(
+                     (value)=>
+                     <div>
+                        <button className='menuButton' onClick={() => {setDate(value); changeFilter(7);}}>
+                           {value}
+                        </button><br/>
+                     </div>
+                  )
+               }
                </div>
             </div>
 
@@ -106,9 +139,14 @@ export default function MainContent() {
                <h3 className='filterTitle'>Property Type</h3><br/>
                <input className='filterInput' value={propertyType} onClick={() => changeFilter(3)}></input><span className='arrowDown' onClick={() => changeFilter(3)}>▼</span>
                <div className={showOrNot(3)} id='propertyDrop'>
-                  <button className='menuButton' onClick={() => {setType("Apartment"); changeFilter(7);}}>Apartment</button><br/>
-                  <button className='menuButton' onClick={() => {setType("Land"); changeFilter(7);}}>Land</button><br/>
-                  <button className='menuButton' onClick={() => {setType("Commercial"); changeFilter(7);}}>Commercial</button>
+               {
+                  allPropertyType.map(
+                     (value)=>
+                     <div>
+                        <button className='menuButton' onClick={() => {setType(value); changeFilter(7);}}>{value}</button><br/>
+                     </div>
+                  )
+               }
                </div>
             </div>
             <button className='authButtons' id='searchButton' onClick={filterProperty}>Search</button>
